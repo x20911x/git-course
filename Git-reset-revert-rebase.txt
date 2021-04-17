@@ -1,0 +1,34 @@
+head:所在位置
+index:變更狀態紀錄
+working tree:工作狀態
+
+Git reset <filename> >>> 取消暫存區的狀態
+
+Git reset <commit id> --hard >>> 目前的HEAD跟目前的分支 移到指定的 commit 上, 工作目錄跟暫存區 完全回到此版本。
+
+Git reset --hard HEAD^ >>> 完全回到上一個版本, 
+丟棄當前commmit, add及工作目錄改動
+
+(預設) Git reset --mixed HEAD^ >>> 丟棄當前commmit, add
+
+Git reset --soft HEAD^ >>> 丟棄當前commmit
+
+
+
++-----------+------------+------------+--------------+
+|   mode    |    head    |   index    | working tree |
++-----------+------------+------------+--------------+
+|   soft    |  changed   |  unchanged |  unchanged   |
+|   mixed   |  changed   |  changed   |  unchanged   |
+|   hard    |  changed   |  changed   |  changed     |
++-----------+------------+------------+--------------+
+
+
+再做一個新的 Commit，來取消你不要的 Commit 的概念
+git revert HEAD --no-edit >>> 生成新的commit 內容是反轉回上一個提交的內容
+
+如果對於多人共同協作的專案，也許因為團隊開發的政策，你不一定有機會可以使用 Reset 指令，這時候就可以 Revert 指令來做出一個「取消」的 Commit，對其它人來說也不算是「修改歷史」，而是新增一個 Commit，只是剛好這個 Commit 是跟某個 Commit 反向的操作而已。
+
+git rebase -i <需更動順序之前的commit id>  >>> 進入rebase 文件內 修改為編輯模式edit >>> git commit --amend >>> 進入文件內修改commit 註釋
+
+git rebase -i <需更動順序之前的commit id> >>> git reset --soft HEAD >>>git reset >>> 重新commit生成新的commit >>> 進入rebase 文件內 調整commit 順序

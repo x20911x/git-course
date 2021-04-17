@@ -1,0 +1,21 @@
+### tag 等同於某個分支的commid id
+
+git tag -a <tagName> -m "comment" >>> 將當前指向的head 設置標籤
+
+git tag >>> 查看所有標籤
+
+git show >>> 觀看tag內容
+
+git tag <tagName> <commit id>  >>> 設置標籤指向此commit id
+
+git tag -d <tagName> >>> 刪除此標籤
+
+若要生成此tag的新分支
+Method 1
+步驟一 git checkout <tagName> >>> 切換到此標籤的位置  >>> 步驟二 git checkout -b <新分支名> >>> 將此標籤的coomit 生成新的分支v
+
+Method 2
+git checkout -b 新分支名 <tagName> or <commit id> 
+Ex. git checkout -b version1.6 v1.6
+or 
+git checkout -b version1.6 d234fsdafd223422232fsd222222de3

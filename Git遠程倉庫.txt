@@ -1,0 +1,26 @@
+創建遠程倉庫 >>>  Git init -bare
+
+添加遠程倉庫方法
+1. git remote add <origin遠程倉庫名> <遠程地址>
+
+2. git fetch 刷新遠程隱藏分支(以紅色顯示) >>> 透過git branch -a 可以看到
+
+3.1 抓取遠程分支
+a. git pull <origin> <branch> >>> 透過遠程倉庫<origin>拉取遠程分支<branch>
+b. git checkout -b <新分支名> <遠程倉庫origin/遠程分支master> >>> 在本地抓取遠程生成新分支
+
+3.2 
+a. git branch --set-upstream-to=origin/master master >>> 設定本地master 連結到遠程的origin/master
+b. git push --set-upstream <遠程倉庫origin> <本地branch>  >>>  推送本地分支到遠程倉庫
+
+4. git branch -D <branch> >>> 刪除本地分支
+git push origin --delete <新的分支>
+
+5. 本地 commit 數 > 遠程 commit 數 >>> 使用 git push
+遠程 commit 數 > 本地 commit 數 >>> 使用 git pull
+本地 commit 數 == 遠程 commit 數 但有差異>> 先用pull 來merge遠程分支進來 再push上去
+
+6. 
+a. git pull -f >>> 遠程及本地發生衝突則以遠程強制取代本地
+b. git push -f >>> 本地及遠程發生衝突則以本地強制取代遠程
+----------------------------------------------------------------------------

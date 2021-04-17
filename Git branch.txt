@@ -1,0 +1,17 @@
+git checkout <branch> or <commit id>  >>> 切換head所在位置
+
+git checkout <commit id>  >>> 切換到此commit, 切換到其他head位置時此commmit id 的head所在 位置就會消失
+解決方法 >>> git checkout -b <branch> >>> 將當前head位置指定為此新分支
+
+git branch -D <branch> >>> 刪除本地分支
+
+
+狀況題: 分支不小心刪掉怎麼處理?
+Ans: $ git branch <new_branch> <commit id>
+
+ls .git/refs/heads/ >>> 查看當前工作目錄下所有分支
+
+cat .git/HEAD >>> 查看head位置
+
+cat .git/refs/heads/<branchName>  >>> 查看此branch 當前的<commit id>
+

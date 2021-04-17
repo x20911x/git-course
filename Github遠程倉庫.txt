@@ -1,0 +1,4 @@
+1. 添加遠程倉庫origin >>> git remote add origin https://github.com/x20911x/test1.git
+
+
+2. 修改遠程倉庫origin >>> git remote set-url origin https://github.com/x20911x/test1.git

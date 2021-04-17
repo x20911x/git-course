@@ -1,0 +1,7 @@
+Git diff <filename> >>> 顯示 <檔案> 與 <HEAD所指向commit> 的差異
+
+Git diff --cached <filename> >>> 顯示 <add到暫存區檔案> 跟 <HEAD所指向commit> 的差異。
+
+git diff e37078e d4d8d9d >>> 比對兩個commit 的差異
+
+git diff >>> 工作目錄與暫存區的差異
